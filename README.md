@@ -31,3 +31,9 @@ Example:
 ```bash
 curl "http://localhost:8080/chat?message=Hello"
 ```
+
+Example Redis:
+```bash
+curl "http://localhost:8080/chat2?user=andy&message=Was+ist+dein+Zweck%3F"
+curl "http://localhost:8080/chat2?user=andy&message=Was+War+meine+letzte+Frage%3F"
+```
