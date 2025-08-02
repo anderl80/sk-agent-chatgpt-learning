@@ -15,7 +15,7 @@ console = Console()
 class ChatClient:
     def __init__(self, base_url: str = "http://localhost:8080"):
         self.base_url = base_url
-        self.username = None
+        self.username: str | None = None
     
     def check_health(self):
         """Check if the FastAPI server is running"""
@@ -56,7 +56,7 @@ def main():
     # Check server health
     if not client.check_health():
         console.print("❌ [red]Cannot connect to FastAPI server at http://localhost:8080[/red]")
-        console.print("[dim]Make sure the server is running with: uvicorn app.main:app --reload[/dim]")
+        console.print("[dim]Make sure the server is running with: uvicorn app.main:app --reload --port 8080[/dim]")
         sys.exit(1)
     
     console.print("✅ [green]Connected to server[/green]")
@@ -76,6 +76,7 @@ def main():
     
     console.print("\n" + "="*50)
     console.print("[bold]Start chatting![/bold]")
+    console.print("[dim]Type 'quit' or 'exit' to leave[/dim]")
     console.print("="*50 + "\n")
     
     while True:
